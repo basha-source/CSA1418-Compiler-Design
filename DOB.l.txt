@@ -1,0 +1,20 @@
+%{
+#include<stdio.h>
+%}
+
+%%
+[0-9]{2}\/[0-9]{2}\/[0-9]{4}\n  { printf("Valid DOB\n"); }
+.*\n                            { printf("Invalid DOB\n"); }
+%%
+
+int yywrap()
+{
+    return 1;
+}
+
+int main()
+{
+    printf("Enter DOB (DD/MM/YYYY): ");
+    yylex();
+    return 0;
+}

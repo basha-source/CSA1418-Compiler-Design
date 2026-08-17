@@ -1,0 +1,21 @@
+
+%{
+%}
+
+%%
+(http|https|ftp):\/\/[a-zA-Z0-9.-]+\.[a-z]{2,63}(\/\S*)? {
+    printf("It's a URL\n");
+}
+
+[ \t\n] ;
+
+. {
+    printf("It's not a URL\n");
+}
+%%
+int yywrap(){}
+int main() {
+    printf("Enter the URL: ");
+    yylex();
+    return 0;
+}

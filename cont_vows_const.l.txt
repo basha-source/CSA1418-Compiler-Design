@@ -1,0 +1,17 @@
+%{
+int vow_count=0;
+int const_count=0;
+%}
+%%
+[aeiouAEIOU] {vow_count++;}
+[a-zA-Z] {const_count++;}
+%%
+int yywrap(){}
+int main(){
+printf("enter the String: ");
+yylex();
+printf("the number of vowels is: %d\n",vow_count);
+printf("the number of consinents: %d\n",const_count);
+return 0;
+
+}
